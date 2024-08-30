@@ -1,0 +1,33 @@
+@import '/index.scss';
+
+.content {
+  margin-top: clamp(3.75rem, 3.295rem + 2.27vw, 5rem);
+  margin-inline: $mInline;
+  text-align: center;
+
+  .learnTo {
+    font-family: 'WindSong', cursive;
+    font-weight: 500;
+    font-size: clamp(2.813rem, -0.71rem + 17.61vw, 12.5rem);
+    line-height: clamp(3.75rem, -0.795rem + 22.73vw, 16.25rem);
+  }
+
+  .scene {
+    position: relative;
+    z-index: -1;
+
+    .model {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .withUs {
+    text-transform: uppercase;
+    font-family: 'Six Caps', sans-serif;
+    font-size: clamp(3.938rem, -1.449rem + 26.93vw, 18.75rem);
+    line-height: clamp(4.563rem, -1.051rem + 28.07vw, 20rem);
+  }
+}

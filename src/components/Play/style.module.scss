@@ -26,6 +26,8 @@
   justify-content: center;
   gap: clamp(0.237rem, 0.21rem + 0.14vw, 0.313rem);
   height: clamp(2.25rem, 1.841rem + 2.05vw, 3.375rem);
+  z-index: 2;
+  mix-blend-mode: difference;
 }
 
 .item {
