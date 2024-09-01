@@ -1,0 +1,118 @@
+%button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+  width: clamp(11.25rem, 8.523rem + 13.64vw, 18.75rem);
+  height: clamp(3.125rem, 2.443rem + 3.41vw, 5rem);
+  background-color: $orange;
+
+  .first {
+    display: block;
+    z-index: 4;
+    font-family: 'TFSpike';
+    color: $black;
+    font-size: clamp(0.938rem, 0.665rem + 1.36vw, 1.688rem);
+    margin-top: clamp(0.306rem, 0.274rem + 0.16vw, 0.394rem);
+  }
+
+  .second {
+    display: none;
+    z-index: 3;
+    font-family: 'WindSong', cursive;
+    font-weight: 500;
+    color: $beige;
+    font-size: clamp(2.25rem, 1rem + 2vw, 2.5rem);
+    opacity: 0.6;
+  }
+
+  .third {
+    display: none;
+    z-index: 2;
+    font-family: 'Six Caps', sans-serif;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $black;
+    color: transparent;
+    font-size: clamp(3.188rem, 1.938rem + 2vw, 3.438rem);
+    opacity: 0.4;
+  }
+
+  @media (min-width: 1000px) {
+    %text {
+      position: absolute;
+      visibility: hidden;
+      text-align: center;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .first {
+      @extend %text;
+    }
+
+    .second {
+      display: block;
+      @extend %text;
+    }
+
+    .third {
+      display: block;
+      @extend %text;
+    }
+
+    @keyframes changeText {
+      from {
+        visibility: hidden;
+      }
+
+      to {
+        visibility: visible;
+      }
+    }
+
+    @keyframes changeTextReverse {
+      from {
+        visibility: hidden;
+      }
+
+      to {
+        visibility: visible;
+      }
+    }
+
+    &:hover {
+      .first {
+        color: $orange;
+        animation: changeText 0.35s steps(1) 0.38s forwards; // 3
+      }
+
+      .second {
+        animation: changeText 0.35s steps(1) 0.22s forwards; // 2
+      }
+
+      .third {
+        -webkit-text-stroke-color: $orange;
+        animation: changeText 0.35s steps(1) 0.11s forwards; // 1
+      }
+    }
+
+    &:not(:hover) {
+      .first {
+        animation: changeTextReverse 0.35s steps(1) 0.42s forwards; // 3
+      }
+
+      .second {
+        animation: changeTextReverse 0.35s steps(1) 0.29s forwards; // 2
+      }
+
+      .third {
+        animation: changeTextReverse 0.35s steps(1) 0.19s forwards; // 1
+      }
+    }
+  }
+}

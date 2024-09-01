@@ -8,7 +8,7 @@ import { useGLTF } from '@react-three/drei'
 import { motion } from 'framer-motion-3d'
 
 export default function Model() {
-  const { nodes, materials } = useGLTF('/images/other/torus.glb')
+  const { nodes, materials } = useGLTF('/torus.glb')
   const { viewport } = useThree()
   const mesh = useRef<THREE.Mesh>(null)
 
