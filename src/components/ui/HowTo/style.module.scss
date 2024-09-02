@@ -1,0 +1,70 @@
+@import '/index.scss';
+
+.content {
+  margin-top: clamp(4.063rem, 4.006rem + 0.91vw, 4.688rem);
+  margin-inline: $mInline;
+
+  @media (max-width: 1000px) {
+    margin-top: clamp(20.313rem, 13.107rem + 36.03vw, 35.625rem);
+  }
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 1200px) {
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(1.125rem, 0.833rem + 1.46vw, 1.563rem);
+    }
+
+    p {
+      font-size: clamp(1.063rem, 0.313rem + 3.75vw, 3.125rem);
+      font-family: 'TFSpike';
+
+      span {
+        font-family: 'WindSong', cursive;
+        font-weight: 500;
+      }
+    }
+
+    img {
+      width: clamp(13.75rem, 11.25rem + 12.5vw, 20.625rem);
+      height: clamp(1.875rem, 1.534rem + 1.7vw, 2.813rem);
+    }
+  }
+
+  .tips {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.875rem, 1.42rem + 2.27vw, 3.125rem);
+    margin-top: clamp(2.5rem, 2.045rem + 2.27vw, 3.75rem);
+
+    .tip {
+      text-wrap: balance;
+
+      .title {
+        font-size: clamp(1.188rem, 0.824rem + 1.82vw, 2.188rem);
+        font-family: 'Oswald', sans-serif;
+        font-weight: 500;
+
+        span {
+          font-family: 'WindSong', cursive;
+          font-weight: 500;
+          font-size: clamp(2.5rem, 1.932rem + 2.84vw, 4.063rem);
+          margin-right: clamp(0.375rem, 0.284rem + 0.45vw, 0.625rem);
+        }
+      }
+
+      .description {
+        font-family: 'Oswald', sans-serif;
+        font-size: clamp(1rem, 0.75rem + 1.25vw, 1.688rem);
+
+        span {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

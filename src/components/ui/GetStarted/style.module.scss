@@ -81,11 +81,13 @@
     width: 100%;
     margin-bottom: 20px;
 
-    .hover {
-      position: relative;
-      height: 30px;
-      width: 100%;
-      top: -30px;
+    @media (min-width: 1000px) {
+      .hover {
+        position: relative;
+        height: 30px;
+        width: 100%;
+        top: -30px;
+      }
     }
 
     svg {
