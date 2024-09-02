@@ -1,0 +1,36 @@
+@import '/index.scss';
+
+.content {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: clamp(6.563rem, 0.54rem + 30.11vw, 23.125rem);
+    z-index: -1;
+  }
+
+  .error {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.25rem, 1.023rem + 1.14vw, 1.875rem);
+
+    img {
+      width: clamp(16.25rem, 8.977rem + 36.36vw, 36.25rem);
+    }
+
+    a {
+      width: clamp(11.25rem, 7.614rem + 18.18vw, 21.25rem);
+      margin: auto;
+      text-decoration: none;
+
+      .button {
+        @extend %button;
+      }
+    }
+  }
+}
