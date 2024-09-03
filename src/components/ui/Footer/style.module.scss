@@ -1,0 +1,130 @@
+@import '/index.scss';
+
+.footer {
+  margin-top: clamp(7.5rem, 5.682rem + 9.09vw, 12.5rem);
+  position: relative;
+  height: clamp(11.969rem, 7.003rem + 24.83vw, 25.625rem);
+  clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
+  background-color: $black;
+
+  .relative {
+    position: relative;
+    height: calc(100vh + clamp(11.969rem, 7.003rem + 24.83vw, 25.625rem));
+    top: -100vh;
+
+    .sticky {
+      position: sticky;
+      height: clamp(11.969rem, 7.003rem + 24.83vw, 25.625rem);
+      top: calc(100vh - clamp(11.969rem, 7.003rem + 24.83vw, 25.625rem));
+
+      .content {
+        padding-top: clamp(1.563rem, 0.994rem + 2.84vw, 3.125rem);
+        background-color: $black;
+
+        .head {
+          position: relative;
+          margin-inline: $mInline;
+          background-color: $beige;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-inline: clamp(1.25rem, 0.795rem + 2.27vw, 2.5rem);
+          padding-block: 10px;
+
+          @media (max-width: 800px) {
+            flex-direction: column;
+            justify-content: none;
+          }
+
+          @media (max-width: 600px) {
+            background-color: $orange;
+            background-image: url('/images/bg/footerHeadBg.png');
+            background-size: cover;
+          }
+
+          .rights {
+            margin-top: clamp(0.313rem, 0.063rem + 0.5vw, 0.438rem);
+            @media (max-width: 800px) {
+              margin-top: 0;
+            }
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(1rem, 0.909rem + 0.45vw, 1.25rem);
+            z-index: 1;
+
+            span {
+              font-family: 'WindSong', cursive;
+              font-weight: 500;
+              color: $orange;
+              font-size: clamp(1.625rem, 1.466rem + 0.8vw, 2.063rem);
+              padding-right: clamp(0.231rem, 0.202rem + 0.15vw, 0.313rem);
+            }
+          }
+
+          .background {
+            height: 100%;
+            width: clamp(13.125rem, 10rem + 6.25vw, 14.688rem);
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+
+            @media (max-width: 800px) {
+              width: clamp(15.125rem, 13.625rem + 4vw, 15.625rem);
+              left: 80%;
+            }
+
+            @media (max-width: 700px) {
+              left: 75%;
+            }
+
+            @media (max-width: 600px) {
+              display: none;
+            }
+          }
+
+          div {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.544rem, 0.491rem + 0.26vw, 0.688rem);
+            z-index: 1;
+
+            p {
+              font-family: 'Oswald', sans-serif;
+              font-size: clamp(0.875rem, 0.739rem + 0.68vw, 1.25rem);
+            }
+
+            img {
+              width: clamp(1.563rem, 1.335rem + 1.14vw, 2.188rem);
+              border-radius: 50%;
+            }
+
+            a {
+              position: relative;
+              font-family: 'Oswald', sans-serif;
+              font-weight: 500;
+              color: $black;
+              font-size: clamp(1.125rem, 1.011rem + 0.57vw, 1.438rem);
+              text-decoration: underline;
+
+              @media (min-width: 1000px) {
+                text-decoration: none;
+                width: clamp(5.625rem, -3.75rem + 15vw, 7.5rem);
+
+                &:hover {
+                  margin-top: 10px;
+                  font-family: 'WindSong', cursive;
+                  font-weight: 500;
+                }
+              }
+            }
+          }
+        }
+
+        .typography {
+          padding-block: clamp(1.563rem, 0.994rem + 2.84vw, 3.125rem);
+          padding-inline: $mInline;
+        }
+      }
+    }
+  }
+}

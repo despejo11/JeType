@@ -4,7 +4,7 @@
   margin-top: clamp(4.063rem, 4.006rem + 0.91vw, 4.688rem);
   margin-inline: $mInline;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 999.9px) {
     margin-top: clamp(20.313rem, 13.107rem + 36.03vw, 35.625rem);
   }
 
