@@ -99,7 +99,7 @@ export default function GetStarted() {
         <div className={styles.arrow}>
           <img src='/images/other/arrow.svg' alt='Arrow' />
 
-          <Button className={styles.button}>
+          <Button href='/wewe' className={styles.button}>
             <p className={styles.first}>Get Started</p>
             <p className={styles.second}>Get Started</p>
             <p className={styles.third}>Get Started</p>

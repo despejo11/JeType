@@ -1,0 +1,52 @@
+@import '/index.scss';
+
+.track {
+  position: fixed;
+  bottom: clamp(1.938rem, 1.278rem + 3.3vw, 3.75rem);
+  left: $mInline;
+  width: clamp(6.25rem, 1.705rem + 22.73vw, 18.75rem);
+  height: 10px;
+  z-index: 9;
+  background-color: $black;
+  mix-blend-mode: difference;
+
+  .thumb {
+    background-color: $orange;
+    width: 100%;
+    height: 100%;
+  }
+
+  p {
+    position: absolute;
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(0.894rem, 0.819rem + 0.38vw, 1.1rem);
+    color: $orange;
+  }
+}
+
+.button {
+  z-index: 9;
+  cursor: pointer;
+  mix-blend-mode: difference;
+  position: fixed;
+  left: $mInline;
+  bottom: calc(
+    clamp(1.625rem, 1.534rem + 0.45vw, 1.875rem) +
+      clamp(0.938rem, 0.824rem + 0.57vw, 1.25rem) + $mInline
+  ); // 1 - height (26/30), 2 - offset (15/20)
+  font-family: 'TFSpike';
+  padding-inline: clamp(0.813rem, 0.767rem + 0.23vw, 0.938rem);
+  padding-top: clamp(0.406rem, 0.349rem + 0.28vw, 0.563rem);
+  padding-bottom: clamp(0.188rem, 0.142rem + 0.23vw, 0.313rem);
+  font-size: clamp(0.813rem, 0.653rem + 0.8vw, 1.25rem);
+  background-color: $orange;
+
+  @media (min-width: 1000px) {
+    line-height: 26px;
+    width: clamp(8.125rem, 1.875rem + 10vw, 9.375rem);
+
+    &:hover {
+      font-family: 'Oleo Script', system-ui;
+    }
+  }
+}

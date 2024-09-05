@@ -3,7 +3,7 @@
 import * as THREE from 'three'
 import { useMotionValue, useSpring } from 'framer-motion'
 import { useFrame, useThree } from '@react-three/fiber'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { motion } from 'framer-motion-3d'
 
@@ -36,6 +36,45 @@ export default function Model() {
     return () => window.removeEventListener('mousemove', manageMouseMove)
   }, [])
 
+  const [scale, setScale] = useState(0)
+
+  useEffect(() => {
+    let id: NodeJS.Timeout
+    const startScale = 0
+    const endScale = 1
+    const duration = 1.4
+    const fps = 60
+    const totalFrames = duration * fps
+
+    let currentFrame = 0
+
+    const ease = (t: number) => {
+      return t === 0
+        ? 0
+        : t === 1
+        ? 1
+        : t < 0.5
+        ? Math.pow(2, 20 * t - 10) / 2
+        : (2 - Math.pow(2, -20 * t + 10)) / 2
+    }
+
+    const animate = () => {
+      currentFrame++
+      const progress = currentFrame / totalFrames
+      const easedProgress = ease(progress)
+      const newScale = THREE.MathUtils.lerp(startScale, endScale, easedProgress)
+      setScale(newScale)
+
+      if (currentFrame < totalFrames) {
+        id = setTimeout(animate, 1000 / fps)
+      }
+    }
+
+    animate()
+
+    return () => clearTimeout(id)
+  }, [])
+
   useFrame((state, delta) => {
     if (mesh.current && window.innerWidth > 1000) {
       mesh.current.rotation.x = mouse.y.get()
@@ -54,7 +93,7 @@ export default function Model() {
         ref={mesh as any}
         geometry={(nodes.Torus as THREE.Mesh).geometry}
         material={materials['Material.001']}
-        scale={[1, 1, 1.5]}
+        scale={[scale, scale, scale * 1.5]}
       />
     </group>
   )

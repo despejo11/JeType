@@ -3,14 +3,22 @@
 import styles from './style.module.scss'
 import gsap from 'gsap'
 import { useEffect, useRef, useState } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
+import { animatePageOut } from '@/utils/transition'
 import { TButtonProps } from './types'
 
-export default function Button({ children, ...attributes }: TButtonProps) {
+export default function Button({
+  children,
+  href,
+  ...attributes
+}: TButtonProps) {
   const [isWideScreen, setIsWideScreen] = useState(false)
-
-  const circle = useRef(null)
   const timeline = useRef<gsap.core.Timeline | null>(null)
   let timeoutId: NodeJS.Timeout | null = null
+
+  const circle = useRef(null)
+  const pathname = usePathname()
+  const router = useRouter()
 
   useEffect(() => {
     setIsWideScreen(window.innerWidth >= 1000)
@@ -52,10 +60,17 @@ export default function Button({ children, ...attributes }: TButtonProps) {
     }, 300)
   }
 
+  const handleClick = () => {
+    if (href && pathname !== href) {
+      animatePageOut(href, router)
+    }
+  }
+
   return (
     <div
       onMouseEnter={isWideScreen ? manageMouseEnter : undefined}
       onMouseLeave={isWideScreen ? manageMouseLeave : undefined}
+      onClick={handleClick}
       {...attributes}
     >
       {children}

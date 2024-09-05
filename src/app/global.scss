@@ -57,6 +57,29 @@ body {
       display: none;
     }
   }
+
+  .banner {
+    position: relative;
+    min-height: 100vh;
+    background-color: $black;
+    z-index: 999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    .brandLogo {
+      width: clamp(2.813rem, 1.79rem + 5.11vw, 5.625rem);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 :root {

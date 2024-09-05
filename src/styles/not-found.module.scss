@@ -24,14 +24,8 @@
       width: clamp(16.25rem, 8.977rem + 36.36vw, 36.25rem);
     }
 
-    a {
-      width: clamp(11.25rem, 7.614rem + 18.18vw, 21.25rem);
-      margin: auto;
-      text-decoration: none;
-
-      .button {
-        @extend %button;
-      }
+    .button {
+      @extend %button;
     }
   }
 }
