@@ -1,0 +1,78 @@
+@import '/index.scss';
+
+%tab {
+  font-family: 'Oswald', sans-serif;
+  cursor: pointer;
+  position: relative;
+  list-style: none;
+  transition: color $tr ease, background-color $tr ease, height $tr ease;
+  color: $beige;
+  z-index: 1;
+  letter-spacing: 0.3px;
+}
+
+.content {
+  padding-inline: clamp(2.813rem, -21.146rem + 38.33vw, 10rem);
+  margin-top: clamp(2.188rem, 0.625rem + 2.5vw, 2.5rem);
+  background-color: $black;
+  display: flex;
+  align-items: center;
+  height: 80px;
+  justify-content: space-between;
+  position: relative;
+
+  .background {
+    height: 100%;
+    width: clamp(10rem, 0.625rem + 15vw, 11.875rem);
+    position: absolute;
+    top: 0;
+    left: 55%;
+    transform: translateX(-50%);
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: center;
+
+    .options {
+      position: relative;
+      display: flex;
+      gap: 25px;
+
+      .tab {
+        font-size: 22px;
+        padding-top: 5px;
+        padding-bottom: 7px;
+        padding-inline: 10px;
+        @extend %tab;
+
+        svg {
+          fill: none;
+
+          path {
+            transition: fill $tr;
+            fill: $beige;
+          }
+        }
+      }
+
+      .numberTab {
+        font-size: 20px;
+        padding-block: 7px;
+        padding-inline: 14px;
+        @extend %tab;
+      }
+
+      .active {
+        background-color: $orange;
+        color: $black;
+
+        svg {
+          path {
+            fill: $black;
+          }
+        }
+      }
+    }
+  }
+}

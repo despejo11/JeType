@@ -1,0 +1,83 @@
+@import '/index.scss';
+
+.content {
+  margin-top: clamp(1.563rem, 2.5vw, 1.875rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.563rem, 2.5vw, 1.875rem);
+
+  .select {
+    width: 260px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: opacity $tr;
+
+    img {
+      width: 70px;
+    }
+
+    p {
+      font-family: 'TFSpike';
+      width: 150px;
+
+      span {
+        font-family: 'WindSong', cursive;
+        font-weight: 500;
+        font-size: 25px;
+      }
+    }
+
+    svg {
+      fill: none;
+
+      path {
+        fill: $orange;
+      }
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  .dropdown {
+    position: relative;
+    width: 260px;
+    margin: auto;
+    background-color: $black;
+    padding-inline: 30px;
+    padding-block: 20px;
+    object-position: top;
+
+    img {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 90px;
+    }
+
+    .item {
+      font-family: 'TFSpike';
+      line-height: 25px;
+      cursor: pointer;
+      width: 0;
+      color: $beige;
+      transition: scale $tr, padding-left $tr;
+
+      span {
+        font-family: 'WindSong', cursive;
+        font-weight: 500;
+        font-size: 25px;
+      }
+
+      &:hover {
+        padding-left: 8px;
+        scale: 1.2;
+      }
+    }
+  }
+}

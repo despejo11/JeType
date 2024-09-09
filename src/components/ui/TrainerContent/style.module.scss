@@ -1,0 +1,43 @@
+@import '/index.scss';
+
+.content {
+  margin-top: clamp(4.688rem, 3.125rem + 2.5vw, 5rem);
+
+  .desktop {
+    display: block;
+
+    .icon {
+      position: relative;
+      cursor: pointer;
+      transition: all $tr;
+      display: flex;
+      margin: auto;
+      border: clamp(0.163rem, 0.038rem + 0.2vw, 0.188rem) solid $black;
+      width: clamp(3.938rem, 1.75rem + 3.5vw, 4.375rem);
+      height: clamp(2.688rem, 0.5rem + 3.5vw, 3.125rem);
+      border-radius: 50%;
+
+      p {
+        position: absolute;
+        top: 50%;
+        left: 38%;
+        transform: translate(-50%, -50%);
+        font-size: clamp(3.5rem, 1rem + 4vw, 4rem);
+        font-family: 'WindSong', cursive;
+        font-weight: 500;
+      }
+
+      &:hover {
+        p {
+          font-family: 'Oleo Script', system-ui;
+          font-size: clamp(2.156rem, 0.438rem + 2.75vw, 2.5rem);
+          left: 50%;
+        }
+      }
+    }
+
+    @media (max-width: 1000px) {
+      display: none;
+    }
+  }
+}

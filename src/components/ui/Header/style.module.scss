@@ -17,6 +17,13 @@
   img {
     width: clamp(2.5rem, 1.591rem + 4.55vw, 5rem);
     cursor: pointer;
+    transition: all $tr;
+
+    @media (min-width: 1000px) {
+      &:hover {
+        rotate: 360deg;
+      }
+    }
   }
 
   .music {
