@@ -6,6 +6,10 @@
   .desktop {
     display: block;
 
+    @media (max-width: 1000px) {
+      display: none;
+    }
+
     .icon {
       position: relative;
       cursor: pointer;
@@ -16,28 +20,105 @@
       width: clamp(3.938rem, 1.75rem + 3.5vw, 4.375rem);
       height: clamp(2.688rem, 0.5rem + 3.5vw, 3.125rem);
       border-radius: 50%;
+      margin-bottom: clamp(2.188rem, 0.625rem + 2.5vw, 2.5rem);
 
-      p {
+      .first {
         position: absolute;
         top: 50%;
         left: 38%;
         transform: translate(-50%, -50%);
+        font-family: 'WindSong', cursive;
+        font-weight: 500;
         font-size: clamp(3.5rem, 1rem + 4vw, 4rem);
+      }
+
+      .second {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'Oleo Script', system-ui;
+        font-size: clamp(2.156rem, 0.438rem + 2.75vw, 2.5rem);
+      }
+
+      &:hover {
+        .first {
+          left: 50%;
+          font-family: 'Oleo Script', system-ui;
+          font-size: clamp(2.156rem, 0.438rem + 2.75vw, 2.5rem);
+        }
+      }
+    }
+  }
+
+  .mobile {
+    display: none;
+
+    @media (max-width: 1000px) {
+      display: block;
+    }
+
+    .description {
+      margin-inline: $mInline;
+      font-size: clamp(1.688rem, 1.011rem + 3.38vw, 3.125rem);
+      font-family: 'Oswald', sans-serif;
+      margin-bottom: clamp(0.625rem, 0.331rem + 1.47vw, 1.25rem);
+
+      span {
         font-family: 'WindSong', cursive;
         font-weight: 500;
       }
 
-      &:hover {
-        p {
-          font-family: 'Oleo Script', system-ui;
-          font-size: clamp(2.156rem, 0.438rem + 2.75vw, 2.5rem);
-          left: 50%;
+      svg {
+        margin-left: clamp(1.25rem, 0.662rem + 2.94vw, 2.5rem);
+        width: clamp(1.375rem, 0.699rem + 3.38vw, 2.813rem);
+        height: clamp(1.375rem, 0.699rem + 3.38vw, 2.813rem);
+        fill: none;
+
+        path {
+          fill: $black;
         }
       }
     }
 
-    @media (max-width: 1000px) {
-      display: none;
+    .about {
+      position: relative;
+      background-color: $black;
+      padding-top: clamp(1rem, 0.625rem + 1vw, 1.25rem);
+      padding-bottom: clamp(0.5rem, 0.313rem + 0.5vw, 0.625rem);
+
+      @media (max-width: 600px) {
+        padding-block: clamp(0.625rem, 0.339rem + 1.43vw, 0.875rem);
+      }
+
+      p {
+        font-size: clamp(1.25rem, 1.015rem + 1.18vw, 1.75rem);
+        margin-inline: $mInline;
+        font-family: 'Oswald', sans-serif;
+        color: $beige;
+        margin-bottom: clamp(0.625rem, 0.331rem + 1.47vw, 1.25rem);
+      }
+
+      a {
+        font-size: clamp(1rem, 5vw, 3.125rem);
+        margin-inline: $mInline;
+        color: $beige;
+        font-family: 'TFSpike';
+        text-decoration: none;
+        cursor: pointer;
+
+        span {
+          font-family: 'WindSong', cursive;
+          font-weight: 500;
+        }
+      }
+
+      img {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: clamp(3.75rem, 1.691rem + 10.29vw, 8.125rem);
+      }
     }
   }
 }

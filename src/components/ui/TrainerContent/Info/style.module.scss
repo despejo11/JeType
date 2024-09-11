@@ -1,0 +1,49 @@
+@import '/index.scss';
+
+.content {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: clamp(2.75rem, 0.875rem + 3vw, 3.125rem);
+  margin-inline: $mInline;
+
+  img {
+    position: absolute;
+    top: 60%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    width: clamp(8.75rem, -3.75rem + 20vw, 11.25rem);
+    z-index: -1;
+    opacity: 0.8;
+  }
+
+  .info {
+    width: calc(50% - clamp(2.75rem, 0.875rem + 3vw, 3.125rem));
+
+    .title {
+      font-family: 'TFSpike';
+      font-size: clamp(1.5rem, 0.25rem + 2vw, 1.75rem);
+      margin-bottom: clamp(0.688rem, -0.25rem + 1.5vw, 0.875rem);
+    }
+
+    .description {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.063rem, -0.5rem + 2.5vw, 1.375rem);
+
+      span {
+        font-weight: 500;
+      }
+
+      svg {
+        width: clamp(1.313rem, -0.563rem + 3vw, 1.688rem);
+        height: clamp(0.625rem, -0.313rem + 1.5vw, 0.813rem);
+        fill: none;
+
+        path {
+          fill: $black;
+        }
+      }
+    }
+  }
+}

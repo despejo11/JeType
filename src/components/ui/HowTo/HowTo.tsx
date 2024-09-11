@@ -68,7 +68,7 @@ export default function HowTo() {
   }
 
   return (
-    <div className={styles.content}>
+    <div className={styles.content} id='howTo'>
       <svg
         width='1563'
         height='1954'
