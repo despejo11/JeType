@@ -1,0 +1,66 @@
+@import '/index.scss';
+
+.content {
+  margin-top: 60px;
+  margin-inline: $mInline;
+
+  .capsLock {
+  }
+
+  .time {
+  }
+
+  .toType {
+    margin-inline: 70px;
+    font-size: 36px;
+    line-height: 65px;
+    font-family: 'Inconsolata', monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 100%;
+    position: relative;
+    font-weight: 600;
+
+    .message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      img {
+        width: 40px;
+        height: 40px;
+      }
+
+      p {
+        font-family: 'Oswald', sans-serif;
+        font-size: 25px;
+        font-weight: 400;
+      }
+    }
+
+    .wrapper {
+      display: inline-block;
+      position: relative;
+      transition: filter $tr;
+
+      &.blurred {
+        filter: blur(4px);
+        cursor: pointer;
+      }
+
+      .char {
+        position: relative;
+        transition: opacity 0.1s;
+      }
+    }
+  }
+
+  .result {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+}

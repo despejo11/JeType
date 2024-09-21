@@ -7,11 +7,12 @@
   flex-wrap: wrap;
   gap: clamp(2.75rem, 0.875rem + 3vw, 3.125rem);
   margin-inline: $mInline;
+  margin-top: 80px;
 
   img {
     position: absolute;
-    top: 60%;
-    left: 54%;
+    top: 33%;
+    left: 48%;
     transform: translate(-50%, -50%);
     width: clamp(8.75rem, -3.75rem + 20vw, 11.25rem);
     z-index: -1;

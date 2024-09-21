@@ -1,6 +1,5 @@
 import './global.scss'
 import '@/../index.scss'
-import HeaderWrapper from '@/components/HeaderWrapper'
 
 import type { Metadata } from 'next'
 
@@ -34,10 +33,7 @@ export default function RootLayout({
           </p>
         </div>
 
-        <div className='screenContent'>
-          <HeaderWrapper />
-          {children}
-        </div>
+        <div className='screenContent'>{children}</div>
       </body>
     </html>
   )

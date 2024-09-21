@@ -5,10 +5,16 @@
   cursor: pointer;
   position: relative;
   list-style: none;
-  transition: color $tr ease, background-color $tr ease, height $tr ease;
   color: $beige;
   z-index: 1;
   letter-spacing: 0.3px;
+}
+
+%isActive {
+  background-color: $orange;
+  position: absolute;
+  height: 40px;
+  z-index: -1;
 }
 
 .content {
@@ -19,14 +25,16 @@
   height: 80px;
   justify-content: space-between;
   position: relative;
+  transform-origin: center top;
 
   .background {
     height: 100%;
     width: clamp(10rem, 0.625rem + 15vw, 11.875rem);
     position: absolute;
     top: 0;
-    left: 55%;
+    left: 48.5%;
     transform: translateX(-50%);
+    transform-origin: center bottom;
   }
 
   .tabs {
@@ -44,14 +52,17 @@
         padding-bottom: 7px;
         padding-inline: 10px;
         @extend %tab;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         svg {
           fill: none;
+        }
 
-          path {
-            transition: fill $tr;
-            fill: $beige;
-          }
+        .isActive {
+          @extend %isActive;
         }
       }
 
@@ -59,17 +70,14 @@
         font-size: 20px;
         padding-block: 7px;
         padding-inline: 14px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         @extend %tab;
-      }
 
-      .active {
-        background-color: $orange;
-        color: $black;
-
-        svg {
-          path {
-            fill: $black;
-          }
+        .isActive {
+          @extend %isActive;
         }
       }
     }

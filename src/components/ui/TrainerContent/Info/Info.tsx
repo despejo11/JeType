@@ -1,47 +1,89 @@
 import styles from './style.module.scss'
+import AnimatedText from './AnimatedText/AnimatedText'
+import { textVariants, IMGVariants } from './variants'
+import { motion } from 'framer-motion'
 
 export default function Info() {
   return (
     <div className={styles.content}>
       <div className={styles.info}>
-        <p className={styles.title}>semicolon free</p>
+        <p className={styles.title}>
+          <AnimatedText text='semicolon free' />
+        </p>
 
-        <p className={styles.description}>
+        <motion.p
+          variants={textVariants}
+          initial='initial'
+          animate='animate'
+          exit='exit'
+          className={styles.description}
+        >
           In this mode, you can write code without needing to add semicolons (;)
           at the end of statements. This is applicable in languages like{' '}
           <span>JavaScript</span>, <span>TypeScript</span>, <span>PHP</span>,{' '}
           <span>C#</span>, and <span>Java</span>, where semicolons are usually
           optional.
-        </p>
+        </motion.p>
       </div>
 
       <div className={styles.info}>
-        <p className={styles.title}>single quote</p>
+        <p className={styles.title}>
+          <AnimatedText text='single quote' />
+        </p>
 
-        <p className={styles.description}>
+        <motion.p
+          variants={textVariants}
+          initial='initial'
+          animate='animate'
+          exit='exit'
+          className={styles.description}
+        >
           This mode encourages the use of single quotes (') for strings instead
           of double quotes ("). It is supported in <span>all available</span>{' '}
           languages, making it useful for maintaining consistency in your coding
           style.
-        </p>
+        </motion.p>
       </div>
 
-      <img src='/images/bg/infoBg.png' alt='Pattern' />
+      <motion.img
+        variants={IMGVariants}
+        initial='initial'
+        animate='animate'
+        exit='exit'
+        src='/images/bg/infoBg.png'
+        alt='Pattern'
+      />
 
       <div className={styles.info}>
-        <p className={styles.title}>no error</p>
+        <p className={styles.title}>
+          <AnimatedText text='no error' />
+        </p>
 
-        <p className={styles.description}>
+        <motion.p
+          variants={textVariants}
+          initial='initial'
+          animate='animate'
+          exit='exit'
+          className={styles.description}
+        >
           In this mode, the code editor will not block you from continuing to
           type even if there are syntax errors. Errors will still be
           highlighted, but you can choose to ignore them and continue coding.
-        </p>
+        </motion.p>
       </div>
 
       <div className={styles.info}>
-        <p className={styles.title}>time limit</p>
+        <p className={styles.title}>
+          <AnimatedText text='time limit' />
+        </p>
 
-        <p className={styles.description}>
+        <motion.p
+          variants={textVariants}
+          initial='initial'
+          animate='animate'
+          exit='exit'
+          className={styles.description}
+        >
           Choose your coding challenge duration — <span>15</span> seconds,{' '}
           <span>30</span> seconds, <span>60</span> seconds, or{' '}
           <span>no time limit</span> (
@@ -50,7 +92,7 @@ export default function Info() {
           </svg>
           ). The timer will start as soon as you begin typing, and your goal is
           to write as much accurate code as possible within the selected time.
-        </p>
+        </motion.p>
       </div>
     </div>
   )

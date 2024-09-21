@@ -1,0 +1,11 @@
+@import '/index.scss';
+
+.text {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+
+  span {
+    display: inline-block;
+  }
+}

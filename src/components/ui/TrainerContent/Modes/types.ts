@@ -1,5 +1,11 @@
 import { ReactNode } from 'react'
 
+export type TModesProps = {
+  activeLanguage: string
+  setActiveTime: (time: number) => void
+  activeTime: number
+}
+
 export type TTabsProps = {
   tabs: string[]
   activeTabs: string[]

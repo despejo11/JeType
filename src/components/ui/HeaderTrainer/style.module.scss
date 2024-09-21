@@ -1,0 +1,94 @@
+@import '/index.scss';
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: $mInline;
+  padding-block: 20px;
+  transform-origin: center bottom;
+  background-color: $black;
+
+  .logo {
+    width: clamp(2.5rem, 1.591rem + 4.55vw, 5rem);
+    height: clamp(2.5rem, 1.591rem + 4.55vw, 5rem);
+    fill: none;
+    cursor: pointer;
+    transition: rotate $tr;
+    position: absolute;
+
+    &:hover {
+      rotate: 360deg;
+    }
+  }
+
+  .logoHidden {
+    width: clamp(2.5rem, 1.591rem + 4.55vw, 5rem);
+    height: clamp(2.5rem, 1.591rem + 4.55vw, 5rem);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .icon {
+    position: absolute;
+    cursor: pointer;
+    top: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: clamp(0.163rem, 0.038rem + 0.2vw, 0.188rem) solid;
+    width: clamp(3.938rem, 1.75rem + 3.5vw, 4.375rem);
+    height: clamp(2.688rem, 0.5rem + 3.5vw, 3.125rem);
+    border-radius: 50%;
+
+    .first {
+      position: absolute;
+      top: 50%;
+      left: 38%;
+      transform: translate(-50%, -50%);
+      font-family: 'WindSong', cursive;
+      font-weight: 500;
+      font-size: clamp(3.5rem, 1rem + 4vw, 4rem);
+    }
+
+    .second {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Oleo Script', system-ui;
+      font-size: clamp(2.156rem, 0.438rem + 2.75vw, 2.5rem);
+    }
+
+    &:hover {
+      .first {
+        left: 50%;
+        font-family: 'Oleo Script', system-ui;
+        font-size: clamp(2.156rem, 0.438rem + 2.75vw, 2.5rem);
+      }
+    }
+  }
+
+  .music {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(0.875rem, 0.83rem + 0.23vw, 1rem);
+    padding: 10px 6px;
+
+    .background {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 115%;
+      height: 100%;
+    }
+
+    p {
+      font-size: clamp(1rem, 0.955rem + 0.23vw, 1.125rem);
+      font-family: 'Oswald', sans-serif;
+      z-index: 1;
+    }
+  }
+}

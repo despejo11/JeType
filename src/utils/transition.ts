@@ -5,33 +5,66 @@ export const animatePageIn = () => {
   const banner = document.getElementById('banner')
   const logo = document.getElementById('brandLogo')
 
-  if (banner) {
-    const tl = gsap.timeline()
+  if (window.location.pathname === '/trainer') {
+    setTimeout(() => {
+      if (banner) {
+        const tl = gsap.timeline()
 
-    gsap.set([logo], {
-      scale: 1,
-      rotate: 0,
-      duration: 0.9,
-      ease: 'expo.inOut',
-    })
-    gsap.to([logo], {
-      scale: 3.6,
-      rotate: 360,
-      duration: 0.9,
-      ease: 'expo.inOut',
-    })
+        gsap.set([logo], {
+          scale: 1,
+          rotate: 0,
+          duration: 0.9,
+          ease: 'expo.inOut',
+        })
+        gsap.to([logo], {
+          scale: 3.6,
+          rotate: 360,
+          duration: 0.9,
+          ease: 'expo.inOut',
+        })
 
-    tl.set([banner], {
-      yPercent: 0,
-      duration: 0.9,
-      ease: 'expo.inOut',
-      borderRadius: '0',
-    }).to([banner], {
-      yPercent: -100,
-      duration: 0.9,
-      ease: 'expo.inOut',
-      borderRadius: '50%',
-    })
+        tl.set([banner], {
+          yPercent: 0,
+          duration: 0.9,
+          ease: 'expo.inOut',
+          borderRadius: '0',
+        }).to([banner], {
+          yPercent: -100,
+          duration: 0.9,
+          ease: 'expo.inOut',
+          borderRadius: '50%',
+        })
+      }
+    }, 1500)
+  } else {
+    if (banner) {
+      const tl = gsap.timeline()
+
+      gsap.set([logo], {
+        scale: 1,
+        rotate: 0,
+        duration: 0.9,
+        ease: 'expo.inOut',
+      })
+      gsap.to([logo], {
+        scale: 3.6,
+        rotate: 360,
+        duration: 0.9,
+        ease: 'expo.inOut',
+      })
+
+      tl.set([banner], {
+        yPercent: 0,
+        duration: 0.9,
+        ease: 'expo.inOut',
+        borderRadius: '0',
+      }).to([banner], {
+        yPercent: -100,
+        duration: 0.9,
+        ease: 'expo.inOut',
+        borderRadius: '50%',
+      })
+    }
   }
 }
 

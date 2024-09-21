@@ -1,6 +1,18 @@
 @import '/index.scss';
 
+%symbols {
+  font-family: 'WindSong', cursive;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+%animatedText {
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
 .content {
+  position: relative;
   margin-top: clamp(1.563rem, 2.5vw, 1.875rem);
   display: flex;
   flex-direction: column;
@@ -23,11 +35,15 @@
     p {
       font-family: 'TFSpike';
       width: 150px;
+      display: inline-block;
+      @extend %animatedText;
+
+      a {
+        display: inline-block;
+      }
 
       span {
-        font-family: 'WindSong', cursive;
-        font-weight: 500;
-        font-size: 25px;
+        @extend %symbols;
       }
     }
 
@@ -45,13 +61,17 @@
   }
 
   .dropdown {
-    position: relative;
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translateX(-50%);
     width: 260px;
     margin: auto;
     background-color: $black;
     padding-inline: 30px;
     padding-block: 20px;
     object-position: top;
+    z-index: 1;
 
     img {
       position: absolute;
@@ -61,22 +81,26 @@
     }
 
     .item {
-      font-family: 'TFSpike';
-      line-height: 25px;
-      cursor: pointer;
-      width: 0;
-      color: $beige;
-      transition: scale $tr, padding-left $tr;
+      display: flex;
+      flex-direction: column;
+      @extend %animatedText;
 
-      span {
-        font-family: 'WindSong', cursive;
-        font-weight: 500;
-        font-size: 25px;
-      }
+      p {
+        display: inline-block;
+        font-family: 'TFSpike';
+        line-height: 25px;
+        cursor: pointer;
+        width: 0;
+        color: $beige;
+        transition: padding-left $tr;
 
-      &:hover {
-        padding-left: 8px;
-        scale: 1.2;
+        span {
+          @extend %symbols;
+        }
+
+        &:hover {
+          padding-left: 8px;
+        }
       }
     }
   }

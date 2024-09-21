@@ -1,24 +1,26 @@
 'use client'
 
 import styles from './style.module.scss'
+import Header from '../Header/Header'
+import HeaderTrainer from '../HeaderTrainer/HeaderTrainer'
+import Info from './Info/Info'
 import Modes from './Modes/Modes'
 import LanguageSelection from './LanguageSelection/LanguageSelection'
-import Info from './Info/Info'
+import Typing from './Typing/Typing'
 import { animatePageOut } from '@/utils/transition'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
-import { useState } from 'react'
 
 export default function TrainerContent() {
   const [activeLanguage, setActiveLanguage] = useState('JavaScript')
+  const [activeTime, setActiveTime] = useState(60)
+  const [testStarted, setTestStarted] = useState(false)
   const [showInfo, setShowInfo] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   const pathname = usePathname()
   const router = useRouter()
-
-  const handleIconClick = () => {
-    setShowInfo((prevShowInfo) => !prevShowInfo)
-  }
 
   const scrollToHowTo = () => {
     if ('/#howTo' && pathname !== '/#howTo') {
@@ -26,36 +28,67 @@ export default function TrainerContent() {
     }
   }
 
+  const handleTestStart = () => {
+    setTestStarted(true)
+  }
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1000)
+    }
+
+    handleResize()
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
+  const testStartedVariants = (testStarted: boolean) => ({
+    opacity: testStarted ? 0 : 1,
+    pointerEvents: testStarted ? 'none' : ('auto' as 'none' | 'auto'),
+  })
+
   return (
     <div className={styles.content}>
-      <div className={styles.desktop}>
-        <div className={styles.icon} onClick={handleIconClick}>
-          {!showInfo ? (
-            <p className={styles.first}>i</p>
-          ) : (
-            <p className={styles.second}>i</p>
-          )}
-        </div>
+      <motion.div key='header'>
+        {isMobile ? (
+          <Header />
+        ) : (
+          <HeaderTrainer
+            showInfo={showInfo}
+            setShowInfo={setShowInfo}
+            testStarted={testStarted}
+          />
+        )}
+      </motion.div>
 
+      <div className={styles.desktop}>
         <AnimatePresence mode='wait'>
-          {!showInfo ? (
-            <motion.div
-              key='trainer'
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <Modes activeLanguage={activeLanguage} />
-              <LanguageSelection setActiveLanguage={setActiveLanguage} />
+          {showInfo ? (
+            <motion.div key='info'>
+              <Info />
             </motion.div>
           ) : (
-            <motion.div
-              key='info'
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <Info />
+            <motion.div key='other'>
+              <motion.div
+                key='modesLS'
+                animate={testStartedVariants(testStarted)}
+              >
+                <Modes
+                  activeLanguage={activeLanguage}
+                  activeTime={activeTime}
+                  setActiveTime={setActiveTime}
+                />
+                <LanguageSelection setActiveLanguage={setActiveLanguage} />
+              </motion.div>
+
+              <Typing
+                activeLanguage={activeLanguage}
+                activeTime={activeTime}
+                onTestStart={handleTestStart}
+              />
             </motion.div>
           )}
         </AnimatePresence>
