@@ -14,6 +14,7 @@ import { usePathname, useRouter } from 'next/navigation'
 
 export default function TrainerContent() {
   const [activeLanguage, setActiveLanguage] = useState('JavaScript')
+  const [activeModes, setActiveModes] = useState<string[]>([])
   const [activeTime, setActiveTime] = useState(60)
   const [testStarted, setTestStarted] = useState(false)
   const [showInfo, setShowInfo] = useState(false)
@@ -23,7 +24,7 @@ export default function TrainerContent() {
   const router = useRouter()
 
   const scrollToHowTo = () => {
-    if ('/#howTo' && pathname !== '/#howTo') {
+    if (pathname !== '/#howTo') {
       animatePageOut('/#howTo', router)
     }
   }
@@ -80,6 +81,8 @@ export default function TrainerContent() {
                   activeLanguage={activeLanguage}
                   activeTime={activeTime}
                   setActiveTime={setActiveTime}
+                  activeModes={activeModes}
+                  setActiveModes={setActiveModes}
                 />
                 <LanguageSelection setActiveLanguage={setActiveLanguage} />
               </motion.div>
@@ -88,6 +91,7 @@ export default function TrainerContent() {
                 activeLanguage={activeLanguage}
                 activeTime={activeTime}
                 onTestStart={handleTestStart}
+                activeModes={activeModes}
               />
             </motion.div>
           )}

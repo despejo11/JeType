@@ -42,12 +42,12 @@
 
     .first {
       position: absolute;
-      top: 50%;
-      left: 38%;
+      top: 46%;
+      left: 50%;
       transform: translate(-50%, -50%);
-      font-family: 'WindSong', cursive;
+      font-family: 'Oswald', sans-serif;
       font-weight: 500;
-      font-size: clamp(3.5rem, 1rem + 4vw, 4rem);
+      font-size: clamp(1.938rem, 0.688rem + 2vw, 2.188rem);
     }
 
     .second {
@@ -61,6 +61,7 @@
 
     &:hover {
       .first {
+        top: 50%;
         left: 50%;
         font-family: 'Oleo Script', system-ui;
         font-size: clamp(2.156rem, 0.438rem + 2.75vw, 2.5rem);

@@ -2,7 +2,9 @@
 
 .caret {
   position: absolute;
-  height: 60px;
-  width: 3.5px;
+  height: clamp(2.375rem, -2.208rem + 7.33vw, 3.75rem);
+  width: clamp(0.169rem, 0.002rem + 0.27vw, 0.219rem);
   background-color: $orange;
+  transition: left 0.13s ease, top 0.13s ease;
+  opacity: 0.8;
 }

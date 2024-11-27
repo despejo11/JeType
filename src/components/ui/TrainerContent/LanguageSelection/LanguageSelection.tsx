@@ -3,6 +3,7 @@ import { languages } from './languages'
 import { TLanguageSelectionProps } from './types'
 import {
   dropdownVariants,
+  pActiveLanguageVariants,
   activeLanguageVariants,
   dropdownItemVariants,
   IMGVariants,
@@ -75,18 +76,25 @@ export default function LanguageSelection({
           alt='Globe'
         />
 
-        <p>
-          <motion.a
-            key={activeLanguage}
-            initial='initial'
-            animate='animate'
-            exit='exit'
-            variants={activeLanguageVariants}
-            dangerouslySetInnerHTML={{
-              __html: formatLanguage(activeLanguage),
-            }}
-          />
-        </p>
+        <motion.p
+          variants={pActiveLanguageVariants}
+          initial='initial'
+          animate='animate'
+          exit='exit'
+        >
+          <AnimatePresence mode='wait'>
+            <motion.a
+              key={activeLanguage}
+              initial='initial'
+              animate='animate'
+              exit='exit'
+              variants={activeLanguageVariants}
+              dangerouslySetInnerHTML={{
+                __html: formatLanguage(activeLanguage),
+              }}
+            />
+          </AnimatePresence>
+        </motion.p>
 
         <motion.div
           variants={SVGScaleVariants}

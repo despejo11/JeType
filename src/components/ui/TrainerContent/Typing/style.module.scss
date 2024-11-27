@@ -1,66 +1,162 @@
 @import '/index.scss';
 
 .content {
-  margin-top: 60px;
-  margin-inline: $mInline;
+  position: relative;
 
   .capsLock {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: $orange;
+    font-family: 'TFSpike';
+    z-index: 5;
+    font-size: clamp(1.125rem, 0.5rem + 1vw, 1.25rem);
+    padding-bottom: clamp(0.813rem, 0.188rem + 1vw, 0.938rem);
+    padding-top: clamp(1.125rem, 0.5rem + 1vw, 1.25rem);
+    width: 100%;
+    text-align: center;
+    letter-spacing: clamp(0.05rem, -0.012rem + 0.1vw, 0.063rem);
   }
 
-  .time {
-  }
-
-  .toType {
-    margin-inline: 70px;
-    font-size: 36px;
-    line-height: 65px;
-    font-family: 'Inconsolata', monospace;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    max-width: 100%;
+  .typing {
+    margin-top: 60px;
+    margin-inline: $mInline;
     position: relative;
-    font-weight: 600;
 
-    .message {
+    .time {
+      left: clamp(3.125rem, -3.125rem + 10vw, 4.375rem);
+      margin-left: 20px;
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.625rem, 0.125rem + 4vw, 3.125rem);
+      color: $orange;
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      display: flex;
-      align-items: center;
-      gap: 20px;
+      top: -80px;
+      font-variant-numeric: tabular-nums;
 
-      img {
-        width: 40px;
-        height: 40px;
+      @media (max-width: 1100px) {
+        top: -72px;
       }
+
+      svg {
+        fill: none;
+        width: clamp(3.375rem, 0.875rem + 4vw, 3.875rem);
+        height: clamp(3.375rem, 0.875rem + 4vw, 3.875rem);
+        margin-top: 12px;
+
+        path {
+          fill: $orange;
+        }
+      }
+    }
+
+    .toTypeWrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .toType {
+        margin-inline: clamp(3.125rem, -3.125rem + 10vw, 4.375rem);
+        font-size: clamp(1.156rem, 0.01rem + 1.83vw, 1.5rem);
+        line-height: 65px;
+
+        @media (max-width: 1100px) {
+          line-height: 45px;
+        }
+
+        font-family: 'Inconsolata', monospace;
+        position: relative;
+        font-weight: 600;
+
+        .message {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          display: flex;
+          align-items: center;
+          gap: 20px;
+
+          img {
+            width: 40px;
+            height: 40px;
+          }
+
+          p {
+            font-family: 'Oswald', sans-serif;
+            font-size: 25px;
+            font-weight: 400;
+          }
+        }
+
+        .wrapper {
+          display: inline-block;
+          position: relative;
+          transition: filter $tr;
+
+          &.blurred {
+            filter: blur(4px);
+            cursor: pointer;
+          }
+
+          .char {
+            position: relative;
+            transition: all 0.13s;
+
+            .isError {
+              height: 5px;
+              width: 15px;
+              position: absolute;
+              background-color: $red;
+              border-radius: 5px;
+              bottom: -5px;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+          }
+        }
+      }
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+  }
+
+  .shortcuts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: clamp(1rem, -0.25rem + 2vw, 1.25rem);
+    margin-top: clamp(4.375rem, -1.875rem + 10vw, 5.625rem);
+    margin-bottom: clamp(2.5rem, -3.75rem + 10vw, 3.75rem);
+
+    .shortcut {
+      scale: 0.85;
 
       p {
         font-family: 'Oswald', sans-serif;
-        font-size: 25px;
-        font-weight: 400;
+
+        .tab {
+          background-color: $orange;
+          padding-inline: clamp(0.625rem, 1vw, 0.75rem);
+          padding-block: 2px;
+          font-size: clamp(0.875rem, 0.25rem + 1vw, 1rem);
+        }
+
+        .symbol {
+          background-color: $orange;
+          padding-inline: clamp(0.625rem, 1vw, 0.75rem);
+          padding-block: 2px;
+          padding-bottom: 5px;
+          font-size: clamp(0.875rem, 0.25rem + 1vw, 1rem);
+        }
+
+        .line {
+          margin-inline: 8px;
+        }
       }
     }
-
-    .wrapper {
-      display: inline-block;
-      position: relative;
-      transition: filter $tr;
-
-      &.blurred {
-        filter: blur(4px);
-        cursor: pointer;
-      }
-
-      .char {
-        position: relative;
-        transition: opacity 0.1s;
-      }
-    }
-  }
-
-  .result {
-    margin-top: 20px;
-    font-size: 20px;
   }
 }

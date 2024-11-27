@@ -12,18 +12,26 @@ export const IMGVariants = {
   exit: { scale: 0, y: -10 },
 }
 
+export const pActiveLanguageVariants = {
+  initial: { opacity: 0 },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: DURATION,
+    },
+  },
+  exit: { opacity: 0 },
+}
+
 export const activeLanguageVariants = {
-  initial: { y: '200%' },
+  initial: { y: '150%' },
   animate: {
     y: 0,
     transition: {
       duration: DURATION,
-      type: 'spring',
-      stiffness: 160,
-      damping: 20,
     },
   },
-  exit: { y: '-200%' },
+  exit: { y: '-150%' },
 }
 
 export const SVGScaleVariants = {
@@ -42,9 +50,6 @@ export const SVGRotateVariants = {
   initial: { rotate: 0 },
   animate: (isDropdownOpen: boolean) => ({
     rotate: isDropdownOpen ? 180 : 0,
-    transition: {
-      duration: DURATION,
-    },
   }),
   exit: { rotate: 0 },
 }

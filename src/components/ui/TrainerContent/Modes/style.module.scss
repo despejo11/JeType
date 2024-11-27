@@ -47,7 +47,7 @@
       gap: 25px;
 
       .tab {
-        font-size: 22px;
+        font-size: clamp(1.25rem, 0.625rem + 1vw, 1.375rem);
         padding-top: 5px;
         padding-bottom: 7px;
         padding-inline: 10px;
@@ -67,7 +67,7 @@
       }
 
       .numberTab {
-        font-size: 20px;
+        font-size: clamp(1.125rem, 0.5rem + 1vw, 1.25rem);
         padding-block: 7px;
         padding-inline: 14px;
         position: relative;

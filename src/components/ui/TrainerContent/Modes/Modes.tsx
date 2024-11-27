@@ -22,13 +22,14 @@ export default function Modes({
   activeLanguage,
   setActiveTime,
   activeTime,
+  activeModes,
+  setActiveModes,
 }: TModesProps) {
   const [languageModes, setLanguageModes] = useState<Record<string, string[]>>({
     python: [],
     'c++': [],
     default: [],
   })
-  const [activeModes, setActiveModes] = useState<string[]>([])
   const [availableModes, setAvailableModes] = useState<string[]>([])
 
   const currentModes = useMemo(() => {
@@ -44,7 +45,7 @@ export default function Modes({
       const savedModes = languageModes[lowerCaseLanguage] || []
       return savedModes.filter((mode) => currentModes.includes(mode))
     })
-  }, [activeLanguage, currentModes, languageModes])
+  }, [activeLanguage, currentModes, languageModes, setActiveModes])
 
   const toggleMode = useCallback(
     (mode: string) => {
@@ -151,7 +152,7 @@ const Tab = ({ children, onClick, isActive }: TTabProps) => {
   const activeWidths: Record<string, number> = useMemo(
     () => ({
       'no error': 88,
-      'semicolon free': 142,
+      'semicolon free': 142.5,
       'single quote': 123,
       default: 41,
     }),

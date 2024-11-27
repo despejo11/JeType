@@ -4,6 +4,10 @@ export type TModesProps = {
   activeLanguage: string
   setActiveTime: (time: number) => void
   activeTime: number
+  activeModes: string[]
+  setActiveModes: (
+    modes: string[] | ((prevModes: string[]) => string[])
+  ) => void
 }
 
 export type TTabsProps = {

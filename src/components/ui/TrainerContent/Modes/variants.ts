@@ -30,9 +30,6 @@ export const liVariants = {
     color: isActive ? '#272727' : '#c7b9a5',
     transition: {
       duration: DURATION,
-      type: 'spring',
-      stiffness: 160,
-      damping: 22,
     },
   }),
   exit: { scale: 0, opacity: 0 },
@@ -40,7 +37,12 @@ export const liVariants = {
 
 export const spanVariants = {
   initial: { scaleY: 0 },
-  animate: { scaleY: 1 },
+  animate: {
+    scaleY: 1,
+    transition: {
+      duration: DURATION,
+    },
+  },
   exit: { scaleY: 0 },
 }
 
@@ -49,18 +51,12 @@ export const infinityIconVariants = {
     fill: '#272727',
     transition: {
       duration: DURATION,
-      type: 'spring',
-      stiffness: 160,
-      damping: 22,
     },
   },
   inactive: {
     fill: '#c7b9a5',
     transition: {
       duration: DURATION,
-      type: 'spring',
-      stiffness: 160,
-      damping: 22,
     },
   },
 }

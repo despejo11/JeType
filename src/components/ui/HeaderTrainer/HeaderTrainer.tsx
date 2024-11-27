@@ -74,7 +74,7 @@ export default function HeaderTrainer({
         },
       },
       animate: {
-        rotate: isAnimating ? 180 : 0,
+        rotate: isAnimating || testStarted ? 180 : 0,
         transform: testStarted
           ? 'translate(-50%, -50%) scale(1.4)'
           : 'translate(0, 0) scale(1)',
