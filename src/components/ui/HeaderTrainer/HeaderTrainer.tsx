@@ -75,15 +75,13 @@ export default function HeaderTrainer({
       },
       animate: {
         rotate: isAnimating || testStarted ? 180 : 0,
-        transform: testStarted
-          ? 'translate(-50%, -50%) scale(1.4)'
-          : 'translate(0, 0) scale(1)',
         top: testStarted ? '30%' : 'auto',
         left: testStarted ? '50%' : 'auto',
+        transform: testStarted ? 'translate(-50%, -50%)' : '',
         transition: {
           duration: DURATION,
           type: 'spring',
-          stiffness: 140,
+          stiffness: 125,
           damping: 17,
         },
       },

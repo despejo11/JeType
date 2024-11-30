@@ -8,6 +8,13 @@ export type TModesProps = {
   setActiveModes: (
     modes: string[] | ((prevModes: string[]) => string[])
   ) => void
+  currentModes: string[]
+  setLanguageModes: (
+    updater:
+      | Record<string, string[]>
+      | ((prevState: Record<string, string[]>) => Record<string, string[]>)
+  ) => void
+  languageModes: Record<string, string[]>
 }
 
 export type TTabsProps = {

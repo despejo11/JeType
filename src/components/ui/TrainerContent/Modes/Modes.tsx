@@ -10,12 +10,6 @@ import {
 import { useRef, useState, useEffect, useCallback, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const initialModesState: Record<string, string[]> = {
-  python: ['single quote', 'no error'],
-  'c++': ['single quote', 'no error'],
-  default: ['single quote', 'no error', 'semicolon free'],
-}
-
 const timeTabs = ['15', '30', '60', 'infinity']
 
 export default function Modes({
@@ -24,18 +18,11 @@ export default function Modes({
   activeTime,
   activeModes,
   setActiveModes,
+  currentModes,
+  setLanguageModes,
+  languageModes,
 }: TModesProps) {
-  const [languageModes, setLanguageModes] = useState<Record<string, string[]>>({
-    python: [],
-    'c++': [],
-    default: [],
-  })
   const [availableModes, setAvailableModes] = useState<string[]>([])
-
-  const currentModes = useMemo(() => {
-    const lowerCaseLanguage = activeLanguage.toLowerCase()
-    return initialModesState[lowerCaseLanguage] || initialModesState.default
-  }, [activeLanguage])
 
   useEffect(() => {
     setAvailableModes(currentModes)

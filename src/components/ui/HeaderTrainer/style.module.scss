@@ -16,6 +16,7 @@
     cursor: pointer;
     transition: rotate $tr;
     position: absolute;
+    z-index: 99;
 
     &:hover {
       rotate: 360deg;

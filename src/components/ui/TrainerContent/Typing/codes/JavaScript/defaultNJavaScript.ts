@@ -1,6 +1,6 @@
 import { TJavaScriptOne, TJavaScriptTwo, TJavaScriptThree } from './types'
 
-export const defaultN: {
+export const defaultNJavaScript: {
   JavaScriptOne: TJavaScriptOne
   JavaScriptTwo: TJavaScriptTwo
   JavaScriptThree: TJavaScriptThree

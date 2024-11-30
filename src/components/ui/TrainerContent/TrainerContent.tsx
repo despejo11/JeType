@@ -9,7 +9,7 @@ import LanguageSelection from './LanguageSelection/LanguageSelection'
 import Typing from './Typing/Typing'
 import { animatePageOut } from '@/utils/transition'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 
 export default function TrainerContent() {
@@ -51,6 +51,39 @@ export default function TrainerContent() {
     pointerEvents: testStarted ? 'none' : ('auto' as 'none' | 'auto'),
   })
 
+  const initialModesState: Record<string, string[]> = {
+    python: ['single quote', 'no error'],
+    'c++': ['single quote', 'no error'],
+    default: ['single quote', 'no error', 'semicolon free'],
+  }
+
+  const [languageModes, setLanguageModes] = useState<Record<string, string[]>>({
+    python: [],
+    'c++': [],
+    default: [],
+  })
+
+  const currentModes = useMemo(() => {
+    const lowerCaseLanguage = activeLanguage.toLowerCase()
+    return initialModesState[lowerCaseLanguage] || initialModesState.default
+  }, [activeLanguage])
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.code === 'Tab') {
+        if (testStarted) {
+          setTestStarted(false)
+          return
+        }
+
+        e.preventDefault()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [testStarted])
+
   return (
     <div className={styles.content}>
       <motion.div key='header'>
@@ -82,6 +115,9 @@ export default function TrainerContent() {
                   activeTime={activeTime}
                   setActiveTime={setActiveTime}
                   activeModes={activeModes}
+                  currentModes={currentModes}
+                  languageModes={languageModes}
+                  setLanguageModes={setLanguageModes}
                   setActiveModes={setActiveModes}
                 />
                 <LanguageSelection setActiveLanguage={setActiveLanguage} />

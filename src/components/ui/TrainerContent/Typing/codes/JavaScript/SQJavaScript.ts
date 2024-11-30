@@ -1,11 +1,11 @@
-import { TJavaScriptSQOne, TJavaScriptSQTwo, TJavaScriptSQThree } from './types'
+import { TJavaScriptOne, TJavaScriptTwo, TJavaScriptThree } from './types'
 
-export const SQ: {
-  JavaScriptSQOne: TJavaScriptSQOne
-  JavaScriptSQTwo: TJavaScriptSQTwo
-  JavaScriptSQThree: TJavaScriptSQThree
+export const SQJavaScript: {
+  JavaScriptOne: TJavaScriptOne
+  JavaScriptTwo: TJavaScriptTwo
+  JavaScriptThree: TJavaScriptThree
 } = {
-  JavaScriptSQOne: {
+  JavaScriptOne: {
     1: `setTimeout(() => { let text1 = 'Quick brown fox'; let text2 = 'jumps `,
     2: `over '; text2 += 'lazy dog'; for (let i = 0; i < 5; i++) { let `,
     3: `before = text1; before += ' and ' + text2 + '.'; console.log(before);`,
@@ -32,7 +32,7 @@ export const SQ: {
     24: `1; return n * factorial(n - 1); } console.log(factorial(5)); `,
     25: `const array = [1, 2, 3, 4, 5]; const squares = array.map(x => x * x);`,
   },
-  JavaScriptSQTwo: {
+  JavaScriptTwo: {
     1: `let person = { name: 'Alice', age: 30 }; person.city = 'NY'; `,
     2: `console.log(person.name + ' lives in ' + person.city); let `,
     3: `numbers = [5, 10, 15, 20]; let total = 0; for (let num of `,
@@ -59,7 +59,7 @@ export const SQ: {
     24: `let fruitsMap = new Map(); fruitsMap.set('apple', 1); `,
     25: `let factorial = n => (n === 0 ? 1 : n * factorial(n - 1)); `,
   },
-  JavaScriptSQThree: {
+  JavaScriptThree: {
     1: `const items = [1, 2, 3, 4]; let sum = items.reduce((acc, val) => `,
     2: `acc + val, 0); console.log('Sum: ' + sum); function subtract(a, b) {`,
     3: `return a - b; } console.log(subtract(10, 5)); let numbers = [0, 1, 2];`,

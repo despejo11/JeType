@@ -24,6 +24,17 @@ export const fadeInOutVariants = {
   exit: { opacity: 0 },
 }
 
+export const toTypeFadeInOutVariants = {
+  initial: { opacity: 0 },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 0.1,
+    },
+  },
+  exit: { opacity: 0 },
+}
+
 export const typingFadeInOutVariants = {
   initial: { opacity: 0 },
   animate: {
