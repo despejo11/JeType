@@ -1,11 +1,45 @@
-import styles from './style.module.scss'
-import Caret from './Caret/Caret'
 import {
+  // JavaScript
   defaultNJavaScript,
   SFJavaScript,
   SQJavaScript,
   SQSFJavaScript,
+
+  // Python
+  defaultNPython,
+  SQPython,
+
+  // C++
+  defaultNCplusPlus,
+  SQCplusPlus,
+
+  // C#
+  defaultNCsharp,
+  SFCsharp,
+  SQCsharp,
+  SQSFCsharp,
+
+  // Java
+  defaultNJava,
+  SFJava,
+  SQJava,
+  SQSFJava,
+
+  // PHP
+  defaultNPHP,
+  SFPHP,
+  SQPHP,
+  SQSFPHP,
+
+  // TypeScript
+  defaultNTypeScript,
+  SFTypeScript,
+  SQTypeScript,
+  SQSFTypeScript,
 } from './codes/index'
+
+import styles from './style.module.scss'
+import Caret from './Caret/Caret'
 import { TTypingProps } from './types'
 import {
   fadeInOutVariants,
@@ -88,9 +122,13 @@ export default function Typing({
       }
 
       const languageKey = `${modeKey}${activeLanguage}`
-      let selectedCode
+      let selectedCode: any
 
       switch (languageKey) {
+        // JavaScript
+        case 'JavaScript':
+          selectedCode = defaultNJavaScript
+          break
         case 'SFJavaScript':
           selectedCode = SFJavaScript
           break
@@ -100,25 +138,99 @@ export default function Typing({
         case 'SQSFJavaScript':
           selectedCode = SQSFJavaScript
           break
-        default:
-          selectedCode = defaultNJavaScript
+
+        // Python
+        case 'Python':
+          selectedCode = defaultNPython
+          break
+        case 'SQPython':
+          selectedCode = SQPython
+          break
+
+        // C++
+        case 'C++':
+          selectedCode = defaultNCplusPlus
+          break
+        case 'SQC++':
+          selectedCode = SQCplusPlus
+          break
+
+        // C#
+        case 'C#':
+          selectedCode = defaultNCsharp
+          break
+        case 'SFC#':
+          selectedCode = SFCsharp
+          break
+        case 'SQC#':
+          selectedCode = SQCsharp
+          break
+        case 'SQSFC#':
+          selectedCode = SQSFCsharp
+          break
+
+        // Java
+        case 'Java':
+          selectedCode = defaultNJava
+          break
+        case 'SFJava':
+          selectedCode = SFJava
+          break
+        case 'SQJava':
+          selectedCode = SQJava
+          break
+        case 'SQSFJava':
+          selectedCode = SQSFJava
+          break
+
+        // PHP
+        case 'PHP':
+          selectedCode = defaultNPHP
+          break
+        case 'SFPHP':
+          selectedCode = SFPHP
+          break
+        case 'SQPHP':
+          selectedCode = SQPHP
+          break
+        case 'SQSFPHP':
+          selectedCode = SQSFPHP
+          break
+
+        // TypeScript
+        case 'TypeScript':
+          selectedCode = defaultNTypeScript
+          break
+        case 'SFTypeScript':
+          selectedCode = SFTypeScript
+          break
+        case 'SQTypeScript':
+          selectedCode = SQTypeScript
+          break
+        case 'SQSFTypeScript':
+          selectedCode = SQSFTypeScript
+          break
       }
 
-      const codeVariants = [
-        selectedCode.JavaScriptOne || {},
-        selectedCode.JavaScriptTwo || {},
-        selectedCode.JavaScriptThree || {},
-      ]
+      if (selectedCode) {
+        const codeVariants = [
+          selectedCode[`${activeLanguage}One`] || {},
+          selectedCode[`${activeLanguage}Two`] || {},
+          selectedCode[`${activeLanguage}Three`] || {},
+        ]
 
-      const fullText = Object.values(codeVariants[currentCodeIndex] || {})
-      setText(fullText)
-      setUserInput('')
-      setCorrectChars(0)
-      setTimer(activeTime)
-      setIsTestRunning(false)
-      setErrorIndex(null)
-      setErrorCount(0)
-      setCurrentLine(0)
+        const fullText = Object.values(
+          codeVariants[currentCodeIndex] || {}
+        ) as string[]
+        setText(fullText)
+        setUserInput('')
+        setCorrectChars(0)
+        setTimer(activeTime)
+        setIsTestRunning(false)
+        setErrorIndex(null)
+        setErrorCount(0)
+        setCurrentLine(0)
+      }
     }
   }, [activeLanguage, activeModes, activeTime, currentCodeIndex])
 
@@ -839,7 +951,7 @@ export default function Typing({
 
                     <p className={styles.template}>
                       <span>*</span> correct
-                      {!isNoErrorMode ? '/incorrect' : null}
+                      {!isNoErrorMode ? '/errors' : null}
                     </p>
                   </div>
                 </div>
@@ -848,7 +960,7 @@ export default function Typing({
               <div className={styles.shortcut}>
                 <p>
                   <span className={styles.tab}>tab</span>{' '}
-                  <span className={styles.line}>—</span> restart test
+                  <span className={styles.line}>—</span> next test
                 </p>
               </div>
             </motion.div>
