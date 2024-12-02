@@ -33,7 +33,7 @@ export const SQTypeScript: {
     25: `public jumpHigh(): void { console.log('Jumping high!'); };`,
   },
   TypeScriptTwo: {
-    1: `const numbers = [10, 20, 30, 40, 50];`,
+    1: `function multiply(x: number, y: number): number { return x * y; }`,
     2: `for (let i = 0; i < numbers.length; i++) { console.log(numbers[i]); }`,
     3: `let x = 0; while (x < 5) { console.log('Loop iteration:', x); x++; }`,
     4: `function add(a: number, b: number): number { return a + b; }`,
@@ -42,7 +42,7 @@ export const SQTypeScript: {
     7: `const arrayOfStrings = ['apple', 'banana', 'cherry'];`,
     8: `arrayOfStrings.forEach(fruit => { console.log(fruit); });`,
     9: `let counter = 10; do { console.log('Counter:', counter); counter--; }`,
-    10: `function multiply(x: number, y: number): number { return x * y; }`,
+    10: `const numbers = [10, 20, 30, 40, 50]; `,
     11: `const isEven = (num: number): boolean => num % 2 === 0;`,
     12: `for (let i = 0; i < 5; i++) { if (i % 2 === 0) { return } }`,
     13: `let randomValue = Math.floor(Math.random() * 100);`,

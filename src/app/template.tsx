@@ -26,7 +26,7 @@ export default function Template({ children }: { children: ReactNode }) {
         <img
           className='brandLogo'
           id='brandLogo'
-          src='/images/other/brandLogo.png'
+          src='/images/other/brandLogo.webp'
           alt='logo'
         />
       </div>

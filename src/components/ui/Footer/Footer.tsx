@@ -14,13 +14,13 @@ export default function Footer() {
 
               <img
                 className={styles.background}
-                src='/images/bg/footerIconBg.png'
+                src='/images/bg/footerIconBg.webp'
                 alt='Pattern'
               />
 
               <div>
                 <p>Created & Curated by</p>
-                <img src='/images/other/chkstepan.png' alt='chkstepan logo' />
+                <img src='/images/other/chkstepan.webp' alt='chkstepan logo' />
                 <a href='https://chkstepan.com/' target='_blank'>
                   chkstepan
                 </a>
@@ -29,7 +29,7 @@ export default function Footer() {
 
             <img
               className={styles.typography}
-              src='/images/other/footerTypography.png'
+              src='/images/other/footerTypography.webp'
               alt='Typography'
             />
           </div>

@@ -50,7 +50,7 @@ export default function Info() {
         initial='initial'
         animate='animate'
         exit='exit'
-        src='/images/bg/infoBg.png'
+        src='/images/bg/infoBg.webp'
         alt='Pattern'
       />
 

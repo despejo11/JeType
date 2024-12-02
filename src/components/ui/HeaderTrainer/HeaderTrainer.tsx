@@ -1,5 +1,5 @@
 import styles from './style.module.scss'
-import Play from '@/components/Play/Play'
+import Play from './Play/Play'
 import { animatePageOut } from '@/utils/transition'
 import { THeaderTrainerProps } from './types'
 import { usePathname, useRouter } from 'next/navigation'
@@ -10,6 +10,8 @@ export default function HeaderTrainer({
   showInfo,
   setShowInfo,
   testStarted,
+  playing,
+  setPlaying,
 }: THeaderTrainerProps) {
   const [isAnimating, setIsAnimating] = useState(showInfo)
   const pathname = usePathname()
@@ -75,13 +77,17 @@ export default function HeaderTrainer({
       },
       animate: {
         rotate: isAnimating || testStarted ? 180 : 0,
-        top: testStarted ? '30%' : 'auto',
-        left: testStarted ? '50%' : 'auto',
-        transform: testStarted ? 'translate(-50%, -50%)' : '',
+        top: testStarted ? '30%' : '60px',
+        left: testStarted
+          ? '50%'
+          : 'clamp(3.125rem, -3.125rem + 10vw, 4.375rem)',
+        transform: testStarted
+          ? 'translate(-50%, -50%)'
+          : 'translate(-50%, -50%)',
         transition: {
           duration: DURATION,
           type: 'spring',
-          stiffness: 125,
+          stiffness: 113,
           damping: 17,
         },
       },
@@ -303,7 +309,7 @@ export default function HeaderTrainer({
         >
           do you want some music?
         </motion.p>
-        <Play />
+        <Play playing={playing} setPlaying={setPlaying} />
       </motion.div>
     </motion.header>
   )

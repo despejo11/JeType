@@ -2,13 +2,12 @@
 
 import styles from './style.module.scss'
 import SvgMorph from './SvgMorph/SvgMorph'
+import { TPlayProps } from './types'
 import { shapeOne, shapeTwo, shapeOneMorphed, shapeTwoMorphed } from './paths'
 import { useState, useRef, useEffect } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
 
-export default function Play() {
+export default function Play({ playing, setPlaying }: TPlayProps) {
   const [trigger, setTrigger] = useState(false)
-  const [playing, setPlaying] = useState(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
 
   const handleClick = () => {
@@ -75,6 +74,7 @@ export default function Play() {
   return (
     <>
       <audio className={styles.audio} ref={audioRef} src='/music/calm.mp3' />
+
       <svg
         className={styles.svg}
         id='Play'
@@ -93,23 +93,6 @@ export default function Play() {
           onComplete={handleAnimationComplete}
         />
       </svg>
-
-      <AnimatePresence>
-        {playing && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.6, delay: 1 }}
-            className={styles.bars}
-          >
-            <div className={styles.item}></div>
-            <div className={styles.item}></div>
-            <div className={styles.item}></div>
-            <div className={styles.item}></div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   )
 }

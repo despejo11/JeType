@@ -8,10 +8,10 @@ export const defaultNJava: {
   JavaOne: {
     1: `public class Ice { static void main(String[] args) { new Random(); };`,
     2: `String str = "Java"; int x = 10; double y = 3.14; boolean flag = true;`,
-    3: `if (flag) { x += 5; } else { x = x - 3; }`,
+    3: `System.out.println("Random result: " + x + " and y value: " + y);`,
     4: `for (int i = 0; i < 10; i++) { y += i * Math.random(); }`,
     5: `if (x > 5) { y = Math.sqrt(x); } else { x = -x; }`,
-    6: `System.out.println("Random result: " + x + " and y value: " + y);`,
+    6: `if (flag) { x += 5; } else { x = x - 3; }`,
     7: `int z = (int) Math.floor(y); System.out.println("Floor of y is: " + z);`,
     8: `String result = "Code"; result += z;`,
     9: `if (z % 2 == 0) { result = "Even"; } else { result = "Odd"; }`,

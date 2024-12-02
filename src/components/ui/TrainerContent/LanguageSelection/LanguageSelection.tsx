@@ -72,7 +72,7 @@ export default function LanguageSelection({
           initial='initial'
           animate='animate'
           exit='exit'
-          src='/images/other/LSIcon.png'
+          src='/images/other/LSIcon.webp'
           alt='Globe'
         />
 
@@ -127,7 +127,7 @@ export default function LanguageSelection({
             ref={dropdown}
             className={styles.dropdown}
           >
-            <img src='/images/bg/LSBg.png' alt='Pattern' />
+            <img src='/images/bg/LSBg.webp' alt='Pattern' />
 
             {availableLanguages.map((language) => (
               <div key={language} className={styles.item}>

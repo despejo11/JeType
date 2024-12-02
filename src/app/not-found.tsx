@@ -6,12 +6,12 @@ export default function notFound() {
     <div className={styles.content}>
       <img
         className={styles.background}
-        src='/images/bg/404Bg.png'
+        src='/images/bg/404Bg.webp'
         alt='Pattern'
       />
 
       <div className={styles.error}>
-        <img src='/images/other/404.png' alt='404' />
+        <img src='/images/other/404.webp' alt='404' />
 
         <Button href='/' className={styles.button}>
           <p className={styles.first}>Back to Home</p>

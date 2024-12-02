@@ -89,7 +89,7 @@ export default function Modes({
         animate='animate'
         exit='exit'
         className={styles.background}
-        src='/images/bg/modesBg.png'
+        src='/images/bg/modesBg.webp'
         alt='Pattern'
       />
 

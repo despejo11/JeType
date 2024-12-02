@@ -85,7 +85,7 @@ export default function HowTo() {
         <p>
           How to <span>Code</span> Faster<span>?</span>
         </p>
-        <img src='/images/other/usefulTips.png' alt='Useful Tips' />
+        <img src='/images/other/usefulTips.webp' alt='Useful Tips' />
       </div>
 
       <div className={styles.tips}>

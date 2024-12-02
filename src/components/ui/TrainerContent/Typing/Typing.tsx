@@ -356,6 +356,18 @@ export default function Typing({
     return () => window.removeEventListener('resize', updateLineHeight)
   }, [])
 
+  useEffect(() => {
+    if (isTestRunning && timer > 0) {
+      document.documentElement.style.cursor = 'none'
+    } else {
+      document.documentElement.style.cursor = ''
+    }
+
+    return () => {
+      document.documentElement.style.cursor = ''
+    }
+  }, [isTestRunning, timer])
+
   const getTextWithMotion = useCallback(() => {
     const currentCharIndex = userInput.length
     const lastCharElement = charRefs.current[currentCharIndex]
@@ -984,7 +996,19 @@ export default function Typing({
           >
             <div className={styles.shortcut}>
               <p>
-                <span className={styles.symbol}>{text[0]?.[0]}</span>{' '}
+                <span className={styles.symbol}>
+                  <AnimatePresence mode='wait'>
+                    <motion.span
+                      key={text[0]?.[0]}
+                      variants={fadeInOutVariants}
+                      initial='initial'
+                      animate='animate'
+                      exit='exit'
+                    >
+                      {text[0]?.[0]}
+                    </motion.span>
+                  </AnimatePresence>
+                </span>{' '}
                 <span className={styles.line}>—</span> start the test
               </p>
             </div>

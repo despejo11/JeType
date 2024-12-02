@@ -92,7 +92,7 @@ export default function GetStarted() {
       <div className={styles.getStarted}>
         <img
           className={styles.sphere}
-          src='/images/other/sphere.png'
+          src='/images/other/sphere.webp'
           alt='Sphere'
         />
 

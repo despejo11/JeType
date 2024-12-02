@@ -4,6 +4,8 @@
 body {
   background-color: $beige;
   color: $black;
+  user-select: none;
+  touch-action: pan-y;
 
   img {
     display: block;

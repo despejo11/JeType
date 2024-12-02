@@ -22,11 +22,11 @@ export default function RootLayout({
         <div className='screenWidthWarning'>
           <img
             className='background'
-            src='/images/bg/screenWidthWarningBg.png'
+            src='/images/bg/screenWidthWarningBg.webp'
             alt='Pattern'
           />
 
-          <img className='logo' src='/images/other/logo.png' alt='Logo' />
+          <img className='logo' src='/images/other/logo.webp' alt='Logo' />
           <p>
             Only for devices <br />
             wider than <span>320 </span>px<span>!</span>

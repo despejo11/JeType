@@ -12,7 +12,7 @@ export default function Background() {
         <Scene />
       </div>
 
-      <img src='/images/bg/welcomeBg.png' alt='Code Faster' />
+      <img src='/images/bg/welcomeBg.webp' alt='Code Faster' />
     </div>
   )
 }

@@ -3,10 +3,12 @@
 import styles from './style.module.scss'
 import Header from '../Header/Header'
 import HeaderTrainer from '../HeaderTrainer/HeaderTrainer'
+import Bars from '../HeaderTrainer/Play/Bars/Bars'
 import Info from './Info/Info'
 import Modes from './Modes/Modes'
 import LanguageSelection from './LanguageSelection/LanguageSelection'
 import Typing from './Typing/Typing'
+import Footer from '../Footer/Footer'
 import { animatePageOut } from '@/utils/transition'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useMemo, useState } from 'react'
@@ -19,6 +21,7 @@ export default function TrainerContent() {
   const [testStarted, setTestStarted] = useState(false)
   const [showInfo, setShowInfo] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const [playing, setPlaying] = useState(false)
 
   const pathname = usePathname()
   const router = useRouter()
@@ -94,9 +97,13 @@ export default function TrainerContent() {
             showInfo={showInfo}
             setShowInfo={setShowInfo}
             testStarted={testStarted}
+            playing={playing}
+            setPlaying={setPlaying}
           />
         )}
       </motion.div>
+
+      <AnimatePresence>{playing && <Bars />}</AnimatePresence>
 
       <div className={styles.desktop}>
         <AnimatePresence mode='wait'>
@@ -155,9 +162,11 @@ export default function TrainerContent() {
             How to <span>Code</span> Faster<span>?</span>
           </a>
 
-          <img src='/images/bg/trainerMobileBg.png' alt='Pattern' />
+          <img src='/images/bg/trainerMobileBg.webp' alt='Pattern' />
         </div>
       </div>
+
+      {isMobile && <Footer />}
     </div>
   )
 }

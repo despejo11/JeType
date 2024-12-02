@@ -24,7 +24,7 @@ export default function Header() {
 
   return (
     <header className={styles.content}>
-      <img onClick={handleClick} src='/images/other/logo.png' alt='Logo' />
+      <img onClick={handleClick} src='/images/other/logo.webp' alt='Logo' />
     </header>
   )
 }
