@@ -1,5 +1,15 @@
+import { Metadata } from 'next'
 import styles from '@/styles/not-found.module.scss'
 import Button from '@/components/Button/Button'
+
+export const metadata: Metadata = {
+  title: 'JeType — 404',
+  description: 'Page not found.',
+  robots: {
+    index: false,
+    follow: false,
+  },
+}
 
 export default function notFound() {
   return (
