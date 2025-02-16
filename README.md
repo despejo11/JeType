@@ -27,6 +27,6 @@
 - [Framer Motion](https://motion.dev/docs)
 - [Lenis](https://lenis.darkroom.engineering/)
 
-### About JeType
+## About JeType
 
 Test your coding speed like never before. Choose your preferred programming language and see how fast you can type code under time pressure. Perfect for developers, learners and competitive coders who want to improve their accuracy and efficiency.
